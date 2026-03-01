@@ -18,13 +18,21 @@ class Body(BaseModel):
     length: Union[int, None] = 20
 
 
+class Token(BaseModel):
+    token: str
+
+
+class TextBody(BaseModel):
+    text: str
+
+
 @app.get('/')
 def root():
     html_path = join(static_path, "index.html")
     return FileResponse(html_path)
 
 
-@app.post('/generate')
+@app.post('/generate', response_model=Token)
 def generate(body: Body):
     """
     Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
