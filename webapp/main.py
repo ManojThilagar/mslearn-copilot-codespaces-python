@@ -35,7 +35,8 @@ def root():
 @app.post('/generate', response_model=Token)
 def generate(body: Body):
     """
-    Generate a pseudo-random token ID of twenty characters by default. Example POST request body:
+    Generate a pseudo-random token ID of twenty characters by default.
+      Example POST request body:
 
     {
         "length": 20
